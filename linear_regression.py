@@ -53,13 +53,13 @@ def meantemp(data_frame, test_frame):
 
     # Add a constant to the predictor variable set to represent the Bo intercept
     x = sm.add_constant(x)
-    # print(x.iloc[:5, :5])
+    print(x.iloc[:5, :5])
 
     # (1) select a significance value
     alpha = 0.02
-    # model = sm.OLS(y, x).fit()
-    #
-    # print(model.summary())
+    model = sm.OLS(y, x).fit()
+    
+    print(model.summary())
 
     x = x.drop('meantemp_1', axis=1)
     x = x.drop('meantemp_2', axis=1)
@@ -71,10 +71,10 @@ def meantemp(data_frame, test_frame):
     x = x.drop('meandewpt_3', axis=1)
     x = x.drop('maxdewpt_1', axis=1)
     x = x.drop('maxdewpt_2', axis=1)
-    # my_model = sm.OLS(y, x).fit()
-    model = sm.OLS(y, x).fit()  # fit_my_meantemp(x, y)
+    my_model = sm.OLS(y, x).fit()
+    model = sm.OLS(y, x).fit()
 
-    # print(model.summary())
+    print(model.summary())
 
     to_remove = ['meantemp_1', 'meantemp_2', 'meantemp_3', 'maxtemp_2', 'maxtemp_3', 'mintemp_2', 'meandewpt_2',
                  'meandewpt_3', 'maxdewpt_1', 'maxdewpt_2']
@@ -249,7 +249,7 @@ def mintemp(data_frame, test_frame):
 
     # Add a constant to the predictor variable set to represent the Bo intercept
     x = sm.add_constant(x)
-    # print(x.iloc[:5, :5])
+    print(x.iloc[:5, :5])
 
     # (1) select a significance value
     alpha = 0.02
